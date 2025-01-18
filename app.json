@@ -1,4 +1,5 @@
 {
+  "name": "Summit",
   "android": {
     "package": "com.anonymous.summit"
   },
