@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
-import styles from '../src/styles';
+import styles from '../styles';
 
 const HomeScreen = ({ navigation }) => {
   return (

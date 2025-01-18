@@ -1,4 +1,4 @@
-// filepath: /Users/jojiaraki/Summit/SettingsScreen.js
+// filepath: /Users/jojiaraki/Summit/screens/SettingsScreen.js
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
