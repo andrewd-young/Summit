@@ -120,6 +120,9 @@ const commonStyles = StyleSheet.create({
     width: 170, // Adjust width as needed
     height: 100, // Adjust height as needed
   },
+  editButton: {
+    marginTop: 20,
+  }
 });
 
 export default commonStyles;
