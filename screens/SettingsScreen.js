@@ -1,14 +1,11 @@
+// filepath: /Users/jojiaraki/Summit/SettingsScreen.js
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-const HomeScreen = ({ navigation }) => {
+const SettingsScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
+      <Text style={styles.text}>Settings Screen</Text>
     </View>
   );
 };
@@ -27,4 +24,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default SettingsScreen;
