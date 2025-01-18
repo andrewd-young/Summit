@@ -1,0 +1,8 @@
+{
+  "android": {
+    "package": "com.anonymous.summit"
+  },
+  "ios": {
+    "bundleIdentifier": "com.anonymous.summit"
+  }
+}
