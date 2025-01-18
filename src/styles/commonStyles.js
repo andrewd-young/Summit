@@ -17,6 +17,9 @@ const commonStyles = StyleSheet.create({
   button: {
     marginTop: 16,
   },
+  editButton: {
+    marginTop: 20,
+  }
 });
 
 export default commonStyles;

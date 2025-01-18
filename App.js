@@ -16,15 +16,7 @@ export default function App() {
       <Tab.Navigator>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Trail Guide" component={GuideScreen} />
-        <Tab.Screen 
-          name="Profile" 
-          component={ProfileScreen} 
-          options={{
-            tabBarIcon: ({color, size}) => (
-              <Feather name="user" color={color} size={size} />
-            ),
-          }}
-        />
+        <Tab.Screen name="Profile" component={ProfileScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
