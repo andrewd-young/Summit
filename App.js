@@ -5,6 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './src/screens/HomeScreen';
 import GuideScreen from './src/screens/GuideScreen';
 import ProfileScreen from './src/screens/SeetingsScreen';
+//Icons
+import Feather from "react-native-vector-icons/Feather";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,7 +16,15 @@ export default function App() {
       <Tab.Navigator>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Trail Guide" component={GuideScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
+        <Tab.Screen 
+          name="Profile" 
+          component={ProfileScreen} 
+          options={{
+            tabBarIcon: ({color, size}) => (
+              <Feather name="user" color={color} size={size} />
+            ),
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
