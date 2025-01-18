@@ -1,5 +1,6 @@
+// filepath: /Users/jojiaraki/Summit/screens/SettingsScreen.js
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import commonStyles from '../styles/commonStyles';
 
 const SettingsScreen = () => {
@@ -9,5 +10,7 @@ const SettingsScreen = () => {
     </View>
   );
 };
+
+
 
 export default SettingsScreen;
