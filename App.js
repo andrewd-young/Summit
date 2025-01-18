@@ -6,7 +6,7 @@ import HomeScreen from './src/screens/HomeScreen';
 import GuideScreen from './src/screens/GuideScreen';
 import ProfileScreen from './src/screens/SeetingsScreen';
 //Icons
-import Feather from "react-native-vector-icons/Feather";
+import Feather from 'react-native-vector-icons/Feather';
 
 const Tab = createBottomTabNavigator();
 

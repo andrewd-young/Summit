@@ -1,7 +1,8 @@
 // filepath: /Users/jojiaraki/Summit/screens/SettingsScreen.js
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import commonStyles from '../styles/commonStyles';
+import { Avatar, Button, Input } from 'react-native-elements';
 
 const SettingsScreen = () => {
   return (
