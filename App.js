@@ -5,9 +5,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './HomeScreen';
 import DetailsScreen from './DetailsScreen';
 
+import { StyleSheet, Text, View } from 'react-native';
+import styles from './src/styles';
+
 const Stack = createStackNavigator();
 
-const App = () => {
+export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -17,5 +20,3 @@ const App = () => {
     </NavigationContainer>
   );
 };
-
-export default App;
