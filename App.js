@@ -1,6 +1,7 @@
 // src/App.js
 import React from "react";
 import { StatusBar } from "react-native";
+import axios, { Axios } from "axios";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -10,6 +11,9 @@ import ProfileScreen from "./src/screens/ProfileScreen";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faHome, faMap, faUser } from "@fortawesome/free-solid-svg-icons";
 import commonStyles from "./src/styles/commonStyles";
+
+//For database
+axios.defaults.baseURL = "https://infinite-quetzal-set.ngrok-free.app";
 
 const Tab = createBottomTabNavigator();
 
@@ -57,7 +61,7 @@ export default function App() {
               options={{
                 tabBarIcon: ({ color, size }) => (
                   <FontAwesomeIcon icon={faMap} color={color} size={size} />
-                ),
+                ), headerShown: false,
               }}
             />
             <Tab.Screen
@@ -66,7 +70,7 @@ export default function App() {
               options={{
                 tabBarIcon: ({ color, size }) => (
                   <FontAwesomeIcon icon={faUser} color={color} size={size} />
-                ),
+                ), headerShown: false,
               }}
             />
           </Tab.Navigator>

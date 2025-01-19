@@ -135,7 +135,44 @@ const commonStyles = StyleSheet.create({
     fontSize: 16,
     color: '#ffffff',
     backgroundColor: '#1e1e1e',
-  }
+  },
+  chatContainer: {
+    flex: 1,
+    width: '100%',
+    padding: 10,
+  },
+  user: {
+    alignSelf: 'flex-end',
+    backgroundColor: '#DCF8C6',
+    padding: 10,
+    borderRadius: 10,
+    marginVertical: 5,
+  },
+  assistant: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#1e1e1e',
+    padding: 10,
+    borderRadius: 10,
+    marginVertical: 20,
+    color: '#ffffff',
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 10,
+    paddingBottom: 60,
+
+  },
+  input: {
+    flex: 1,
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingHorizontal: 10,
+    marginRight: 10,
+    color: '#ffffff',
+  },
 });
 
 export default commonStyles;

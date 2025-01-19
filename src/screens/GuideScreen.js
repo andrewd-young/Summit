@@ -19,14 +19,14 @@ const GuideScreen = () => {
         {
           model: 'gpt-3.5-turbo',
           messages: [
-            { role: 'system', content: 'You are a helpful assistant.' },
+            { role: 'system', content: 'You are a helpful assistant responsible for helping students with debt. Based on location and average monthly income, provide average spending for categories like groceries, travel, and other. Answer debt related questions with analogies with hiking. ' },
             ...messages,
             newMessage,
           ],
         },
         {
           headers: {
-            Authorization: `Bearer BLANK`,
+            Authorization: `Bearer B`,
             'Content-Type': 'application/json',
           },
         }
@@ -41,16 +41,17 @@ const GuideScreen = () => {
 
   return (
     <View style={commonStyles.container}>
-      <ScrollView style={styles.chatContainer}>
+      <Text style={commonStyles.title}>Trail Guide</Text>
+      <ScrollView style={commonStyles.chatContainer}>
         {messages.map((msg, index) => (
-          <Text key={index} style={styles[msg.role]}>
+          <Text key={index} style={commonStyles[msg.role]}>
             {msg.content}
           </Text>
         ))}
       </ScrollView>
-      <View style={styles.inputContainer}>
+      <View style={commonStyles.inputContainer}>
         <TextInput
-          style={styles.input}
+          style={commonStyles.input}
           value={input}
           onChangeText={setInput}
           placeholder="Type your message..."
@@ -61,40 +62,5 @@ const GuideScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  chatContainer: {
-    flex: 1,
-    width: '100%',
-    padding: 10,
-  },
-  user: {
-    alignSelf: 'flex-end',
-    backgroundColor: '#DCF8C6',
-    padding: 10,
-    borderRadius: 10,
-    marginVertical: 5,
-  },
-  assistant: {
-    alignSelf: 'flex-start',
-    backgroundColor: '#ECECEC',
-    padding: 10,
-    borderRadius: 10,
-    marginVertical: 5,
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 10,
-  },
-  input: {
-    flex: 1,
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    marginRight: 10,
-  },
-});
 
 export default GuideScreen;
