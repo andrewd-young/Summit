@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import commonStyles from '../styles/commonStyles';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 const ProfileScreen = () => {
   const [firstName, setFirstName] = useState('John');
@@ -12,7 +14,10 @@ const ProfileScreen = () => {
 
   return (
     <ScrollView style={[commonStyles.container]}>
-      <Text style={commonStyles.title}>Profile</Text>
+      <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginVertical: 20 }}>
+        <Text style={commonStyles.title}>Profile</Text>
+        <FontAwesomeIcon icon={faUser} size={32} color="white" style={{ marginLeft: 10 }} />
+      </View>
       <View style={commonStyles.card}>
         <View style={commonStyles.infoRow}>
           <Text style={commonStyles.infoLabel}>First Name:</Text>
