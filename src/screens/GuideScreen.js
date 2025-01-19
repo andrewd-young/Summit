@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TextInput, Button, ScrollView } from 'react-native';
 import axios from 'axios';
 import commonStyles from '../styles/commonStyles';
 
 const GuideScreen = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    { role: 'system', content: 'Welcome! My name is Wes and I will be your guide throughout your debt journey. How can I assist you with your debt-related questions today?' }
+  ]);
   const [input, setInput] = useState('');
 
   const sendMessage = async () => {
@@ -19,14 +21,14 @@ const GuideScreen = () => {
         {
           model: 'gpt-3.5-turbo',
           messages: [
-            { role: 'system', content: 'You are a helpful assistant responsible for helping students with debt. Based on location and average monthly income, provide average spending for categories like groceries, travel, and other. Answer debt related questions with analogies with hiking. ' },
+            { role: 'system', content: 'You are a helpful assistant named Wes responsible for helping students with debt. Based on location and average monthly income, provide average spending for categories like groceries, travel, and other. Answer debt related questions with analogies with hiking. ' },
             ...messages,
             newMessage,
           ],
         },
         {
           headers: {
-            Authorization: `Bearer B`,
+            Authorization: `Bearer BLANK API KEY`,
             'Content-Type': 'application/json',
           },
         }
@@ -41,10 +43,16 @@ const GuideScreen = () => {
 
   return (
     <View style={commonStyles.container}>
-      <Text style={commonStyles.title}>Trail Guide</Text>
+      <Text style={commonStyles.title}>Trail Guide 🧗</Text>
       <ScrollView style={commonStyles.chatContainer}>
         {messages.map((msg, index) => (
-          <Text key={index} style={commonStyles[msg.role]}>
+          <Text
+            key={index}
+            style={[
+              commonStyles[msg.role],
+              index === 0 && commonStyles.firstMessage // Apply firstMessage style to the first message
+            ]}
+          >
             {msg.content}
           </Text>
         ))}
@@ -55,12 +63,12 @@ const GuideScreen = () => {
           value={input}
           onChangeText={setInput}
           placeholder="Type your message..."
+          placeholderTextColor="#888" // Optional: Set placeholder text color
         />
         <Button title="Send" onPress={sendMessage} />
       </View>
     </View>
   );
 };
-
 
 export default GuideScreen;

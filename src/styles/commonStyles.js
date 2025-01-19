@@ -215,6 +215,11 @@ const commonStyles = StyleSheet.create({
     marginRight: 10,
     color: '#ffffff',
   },
+  firstMessage: {
+    color: '#ffffff',
+    fontSize: 20,
+    marginBottom: 15,
+  },
 });
 
 export default commonStyles;
