@@ -5,8 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faPlus, faMountain } from "@fortawesome/free-solid-svg-icons";
 import SummitChart from "../components/SummitChart";
 import DebtAccountCard from "../components/DebtAccountCard";
+import { useUserData } from "../context/UserProvider";
 
 const HomeScreen = ({ navigation }) => {
+  const { user } = useUserData();
+
   return (
     <View style={[commonStyles.container, { flex: 1 }]}>
       <ScrollView 
@@ -29,7 +32,7 @@ const HomeScreen = ({ navigation }) => {
           </View>
           <View style={commonStyles.smallCard}>
             <Text style={commonStyles.label}>Total</Text>
-            <Text style={commonStyles.amount}>10k</Text>
+            <Text style={commonStyles.amount}>{user.debt}</Text>
           </View>
         </View>
 
