@@ -10,6 +10,21 @@ import { useUserData } from "../context/UserProvider";
 const HomeScreen = ({ navigation }) => {
   const { user } = useUserData();
 
+  const formatNumberWithCommas = (number) => {
+    if (number === undefined || number === null) {
+      return '';
+    }
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  // Placeholder calculation for monthly payment amount
+  const calculateMonthlyPayment = (totalDebt) => {
+    const monthlyPaymentPercentage = 0.05; // 5% of the total debt
+    return Math.round(totalDebt * monthlyPaymentPercentage);
+  };
+
+  const monthlyPayment = calculateMonthlyPayment(user.debt);
+
   return (
     <View style={[commonStyles.container, { flex: 1 }]}>
       <ScrollView 
@@ -28,11 +43,15 @@ const HomeScreen = ({ navigation }) => {
         <View style={commonStyles.smallCardsContainer}>
           <View style={commonStyles.smallCard}>
             <Text style={commonStyles.label}>Payment Total</Text>
-            <Text style={commonStyles.amount}>725</Text>
+            <Text style={commonStyles.amount}>
+              ${calculateMonthlyPayment(user.debt)}
+            </Text>
           </View>
           <View style={commonStyles.smallCard}>
             <Text style={commonStyles.label}>Total</Text>
-            <Text style={commonStyles.amount}>{user.debt}</Text>
+            <Text style={commonStyles.amount}>
+              {user.debt > 999 ? formatNumberWithCommas((user.debt / 1000).toFixed(1)) + 'k' : formatNumberWithCommas(user.debt)}
+            </Text>
           </View>
         </View>
 
@@ -40,11 +59,7 @@ const HomeScreen = ({ navigation }) => {
 
         {/* Additional Info */}
         <View style={commonStyles.infoContainer}>
-          <DebtAccountCard type="Credit Card" amount="500" dueDate="2023-11-01" />
-          <DebtAccountCard type="Student Loan" amount="1500" dueDate="2023-12-15" />
-          <DebtAccountCard type="Auto Loan" amount="8000" dueDate="2024-01-10" />
-          <DebtAccountCard type="Mortgage" amount="200000" dueDate="2024-02-01" />
-          <DebtAccountCard type="Personal Loan" amount="3000" dueDate="2024-03-05" />
+          <DebtAccountCard type="Student Loan" amount={formatNumberWithCommas(user.debt)} dueDate="2025-02-02" />
         </View>
       </ScrollView>
 

@@ -48,7 +48,7 @@ const ProfileScreen = () => {
       <View style={commonStyles.card}>
         <View style={commonStyles.infoRow}>
           <Text style={commonStyles.infoLabel}>Income:</Text>
-          <Text style={commonStyles.infoValue}>{user.income || ""}</Text>
+          <Text style={commonStyles.infoValue}>${user.income || ""}</Text>
         </View>
         <View style={commonStyles.infoRow}>
           <Text style={commonStyles.infoLabel}>ZIP Code:</Text>
@@ -58,7 +58,7 @@ const ProfileScreen = () => {
       <View style={commonStyles.card}>
         <View style={commonStyles.infoRow}>
           <Text style={commonStyles.infoLabel}>Debt Amount:</Text>
-          <Text style={commonStyles.infoValue}>{user.debt || -1}</Text>
+          <Text style={commonStyles.infoValue}>${user.debt || -1}</Text>
         </View>
       </View>
     </ScrollView>
