@@ -18,7 +18,7 @@ export const initUser = async (firstName, lastName, email, income, debt, locatio
             lastName: lastName,
             email: email,
             income: income,
-            debt: debt,
+            totalDebt: debt,
             location: location
         });
         return response;
