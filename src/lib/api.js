@@ -11,15 +11,29 @@ export const testRun = async () => {
   }
 }
 
-export const initUser = async (firstName, lastName, email) => {
+export const initUser = async (firstName, lastName, email, income, debt, location) => {
     try {
-        const response = await axios.post("/users", {
+        const response = await axios.post("/onboarding/initUser", {
         firstName,
         lastName,
         email,
+        income,
+        debt,
+        location
         });
-        console.log(response.data);
+        return response.data;
     } catch (error) {
-        console.error(error);
+        return response.error;
+    }
+}
+
+export const login = async (email) => {
+    try {
+        const response = await axios.post("/onboarding/login", {
+        email,
+        });
+        return response;
+    } catch (error) {
+        return response;
     }
 }

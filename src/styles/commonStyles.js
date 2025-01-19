@@ -6,6 +6,14 @@ const commonStyles = StyleSheet.create({
     backgroundColor: '#121212',
     padding: 16,
   },
+  onboardingInput: {
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "#888",
+    padding: 10,
+    width: "80%",
+    color: "white"
+  },
   card: {
     backgroundColor: '#1e1e1e',
     marginTop: 20,

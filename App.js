@@ -14,9 +14,10 @@ import { faHome, faMap, faUser } from "@fortawesome/free-solid-svg-icons";
 import commonStyles from "./src/styles/commonStyles";
 import 'react-native-gesture-handler';
 import { Sign } from "crypto";
+import { UserProvider } from "./src/context/UserProvider";
 
 // For database
-axios.defaults.baseURL = "https://infinite-quetzal-set.ngrok-free.app";
+axios.defaults.baseURL = "https://infinitely-careful-urchin.ngrok-free.app";
 
 const Tab = createBottomTabNavigator();
 const MainStack = createNativeStackNavigator();
@@ -80,7 +81,7 @@ function TabNavigator() {
 }
 
 export default function App() {
-  const [isModalVisible, setModalVisible] = useState(false);
+  const [isModalVisible, setModalVisible] = useState(true);
 
   useEffect(() => {
     // Show the popup on app launch
@@ -91,12 +92,14 @@ export default function App() {
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1, backgroundColor: "#121212" }}>
         <StatusBar barStyle="light-content" />
-        <NavigationContainer style={commonStyles.container}>
-          <MainStack.Navigator screenOptions={{ headerShown: false }}>
-            <MainStack.Screen name="Main" component={TabNavigator} />
-            <MainStack.Screen name="SignUp" component={SignUpStack} />
-          </MainStack.Navigator>
-        </NavigationContainer>
+        <UserProvider> {/* Wrap with UserProvider */}
+          <NavigationContainer style={commonStyles.container}>
+            <MainStack.Navigator initialRouteName="SignUp" screenOptions={{ headerShown: false }}>
+              <MainStack.Screen name="SignUp" component={SignUpStack} />
+              <MainStack.Screen name="Main" component={TabNavigator} />
+            </MainStack.Navigator>
+          </NavigationContainer>
+        </UserProvider>
       </SafeAreaView>
     </SafeAreaProvider>
   );
