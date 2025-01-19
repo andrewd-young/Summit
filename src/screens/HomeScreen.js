@@ -2,8 +2,9 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import commonStyles from "../styles/commonStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faHome, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import SummitChart from "../components/SummitChart";
+import DebtAccountCard from "../components/DebtAccountCard";
 
 const HomeScreen = ({ navigation }) => {
   return (
@@ -27,16 +28,13 @@ const HomeScreen = ({ navigation }) => {
         </View>
       </View>
 
+      {/* Accounts Header */}
+      <Text style={commonStyles.subTitle}>Accounts</Text>
+
       {/* Additional Info */}
       <View style={commonStyles.infoContainer}>
-        <View style={commonStyles.infoRow}>
-          <Text style={commonStyles.infoLabel}>CC</Text>
-          <Text style={commonStyles.infoValue}>1/27</Text>
-        </View>
-        <View style={commonStyles.infoRow}>
-          <Text style={commonStyles.infoLabel}>Student</Text>
-          <Text style={commonStyles.infoValue}>2/3</Text>
-        </View>
+        <DebtAccountCard type="Credit Card" amount="500" dueDate="2023-11-01" />
+        <DebtAccountCard type="Student Loan" amount="1500" dueDate="2023-12-15" />
       </View>
 
       {/* Plus Button */}
