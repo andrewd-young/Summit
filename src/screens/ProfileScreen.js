@@ -15,6 +15,14 @@ const ProfileScreen = () => {
 
   const { user } = useUserData();
 
+  if (!user) {
+    return (
+      <View style={commonStyles.container}>
+        <Text style={commonStyles.title}>Loading...</Text>
+      </View>
+    )
+  }
+
   return (
     <ScrollView style={[commonStyles.container]}>
       <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginVertical: 20 }}>
@@ -24,33 +32,33 @@ const ProfileScreen = () => {
       <View style={commonStyles.card}>
         <View style={commonStyles.infoRow}>
           <Text style={commonStyles.infoLabel}>First Name:</Text>
-          <Text style={commonStyles.infoValue}>{firstName}</Text>
+          <Text style={commonStyles.infoValue}>{user.firstName || ""}</Text>
         </View>
         <View style={commonStyles.infoRow}>
           <Text style={commonStyles.infoLabel}>Last Name:</Text>
-          <Text style={commonStyles.infoValue}>{lastName}</Text>
+          <Text style={commonStyles.infoValue}>{user.lastName || ""}</Text>
         </View>
       </View>
       <View style={commonStyles.card}>
         <View style={commonStyles.infoRow}>
           <Text style={commonStyles.infoLabel}>Email:</Text>
-          <Text style={commonStyles.infoValue}>{email}</Text>
+          <Text style={commonStyles.infoValue}>{user.email || ""}</Text>
         </View>
       </View>
       <View style={commonStyles.card}>
         <View style={commonStyles.infoRow}>
           <Text style={commonStyles.infoLabel}>Income:</Text>
-          <Text style={commonStyles.infoValue}>{income}</Text>
+          <Text style={commonStyles.infoValue}>{user.income || ""}</Text>
         </View>
         <View style={commonStyles.infoRow}>
           <Text style={commonStyles.infoLabel}>ZIP Code:</Text>
-          <Text style={commonStyles.infoValue}>{zip}</Text>
+          <Text style={commonStyles.infoValue}>{user.location || ""}</Text>
         </View>
       </View>
       <View style={commonStyles.card}>
         <View style={commonStyles.infoRow}>
           <Text style={commonStyles.infoLabel}>Debt Amount:</Text>
-          <Text style={commonStyles.infoValue}>{debt}</Text>
+          <Text style={commonStyles.infoValue}>{user.debt || -1}</Text>
         </View>
       </View>
     </ScrollView>

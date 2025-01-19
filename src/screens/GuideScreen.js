@@ -3,10 +3,11 @@ import { View, Text, TextInput, Button, ScrollView } from 'react-native';
 import axios from 'axios';
 import commonStyles from '../styles/commonStyles';
 import { useUserData } from '../context/UserProvider';
-
-const { user } = useUserData();
-
 const GuideScreen = () => {
+
+  const {user} = useUserData();
+
+  
   const [messages, setMessages] = useState([
     { role: 'system', content: `Welcome! Hello, ${user.firstName}. My name is Wes and I will be your guide throughout your debt journey. How can I assist you with your debt-related questions today?` }
   ]);

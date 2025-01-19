@@ -4,7 +4,6 @@ import { View } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import { Dimensions } from 'react-native';
 import commonStyles from '../styles/commonStyles';
-import { useUserData } from '../context/UserProvider';
 
 function calculateRemainingLoanAmount(principal, annualInterestRate, loanTerm) {
   const monthlyInterestRate = annualInterestRate / 12 / 100;
@@ -54,13 +53,13 @@ const SummitChart = () => {
     <View style={commonStyles.chartContainer}>
       <LineChart
         data={data}
-        width={Dimensions.get('window').width - 16} // from react-native
+        width={Dimensions.get('window').width-10} // from react-native
         height={220}
         chartConfig={{
           backgroundColor: '#1e2923',
           backgroundGradientFrom: '#08130D',
           backgroundGradientTo: '#08130D',
-          decimalPlaces: 2, // optional, defaults to 2dp
+          decimalPlaces: 0, // optional, defaults to 2dp
           color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           style: {
@@ -76,6 +75,7 @@ const SummitChart = () => {
         style={{
           marginVertical: 8,
           borderRadius: 16,
+          marginLeft: -30,
         }}
       />
     </View>
