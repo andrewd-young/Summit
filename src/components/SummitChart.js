@@ -5,10 +5,6 @@ import { LineChart } from 'react-native-chart-kit';
 import { Dimensions } from 'react-native';
 import commonStyles from '../styles/commonStyles';
 
-
-
-const { user } = useUserData();
-
 function calculateRemainingLoanAmount(principal, annualInterestRate, loanTerm) {
   const monthlyInterestRate = annualInterestRate / 12 / 100;
   const numberOfPayments = loanTerm * 12;

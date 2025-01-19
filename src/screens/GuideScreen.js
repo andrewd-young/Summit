@@ -7,7 +7,6 @@ const GuideScreen = () => {
 
   const {user} = useUserData();
 
-  return <Text>{user.firstName}</Text>
   const [messages, setMessages] = useState([
     { role: 'system', content: `Welcome! Hello, ${user.firstName}. My name is Wes and I will be your guide throughout your debt journey. How can I assist you with your debt-related questions today?` }
   ]);
