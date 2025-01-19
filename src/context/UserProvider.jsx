@@ -7,8 +7,8 @@ export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const userExists = async (email) => {
         const response = await login(email);
-        console.lopg(response)
         if(response.status === 200) {
+            setUser(response.data)
             return true;
         } else { 
             return false;
