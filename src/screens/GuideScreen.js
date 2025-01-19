@@ -26,7 +26,7 @@ const GuideScreen = () => {
         },
         {
           headers: {
-            Authorization: `Bearer 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`,
+            Authorization: `Bearer BLANK`,
             'Content-Type': 'application/json',
           },
         }
