@@ -7,7 +7,7 @@
     "icon": "./src/assets/summit-app-icon.png",
     "backgroundColor": "#093110",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./src/assets/summit-app-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     }
