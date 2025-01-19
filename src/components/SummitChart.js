@@ -26,7 +26,10 @@ const SummitChart = () => {
     color: (opacity = 1) => `rgba(75, 192, 192, ${opacity})`,
     strokeWidth: 2, // optional, default 3
     barPercentage: 0.5,
+    formatYLabel: (value) => `$${parseFloat(value).toFixed(2)}`, // Ensure proper formatting
   };
+
+  console.log('Chart data:', JSON.stringify(data, null, 2));
 
   const screenWidth = Dimensions.get('window').width;
   const cardPadding = 60; // Assuming 16 padding on each side

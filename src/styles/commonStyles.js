@@ -3,11 +3,11 @@ import { StyleSheet } from 'react-native';
 const commonStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212', // Dark background
+    backgroundColor: '#121212',
     padding: 16,
   },
   card: {
-    backgroundColor: '#1e1e1e', // Dark card background
+    backgroundColor: '#1e1e1e',
     marginTop: 20,
     elevation: 2,
     shadowColor: '#000',
@@ -21,7 +21,13 @@ const commonStyles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     marginBottom: 5,
-    color: '#ffffff', // Light text color
+    color: '#ffffff',
+  },
+  subTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    marginTop: 20,
   },
   stepsContainer: {
     marginVertical: 20,
@@ -33,11 +39,11 @@ const commonStyles = StyleSheet.create({
   step: {
     flex: 1,
     height: 8,
-    backgroundColor: '#ffffff', // Light step color
+    backgroundColor: '#ffffff',
     marginHorizontal: 2,
   },
   incompleteLine: {
-    backgroundColor: '#333333', // Dark incomplete line
+    backgroundColor: '#333333',
   },
   paymentRow: {
     flexDirection: 'row',
@@ -50,16 +56,16 @@ const commonStyles = StyleSheet.create({
   label: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#808080', // Gray text color
+    color: '#808080',
   },
   amount: {
-    fontSize: 40, // Increased font size
+    fontSize: 40,
     fontWeight: 'bold',
     marginTop: 10,
-    color: '#ffffff', // Light text color
+    color: '#ffffff',
   },
   infoContainer: {
-    marginTop: 10,
+    marginTop: 5,
   },
   infoRow: {
     flexDirection: 'row',
@@ -69,15 +75,15 @@ const commonStyles = StyleSheet.create({
   infoLabel: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#ffffff', // Light text color
+    color: '#ffffff',
   },
   infoValue: {
     fontSize: 16,
-    color: '#ffffff', // Light text color
+    color: '#ffffff',
   },
   plusButton: {
     position: "absolute",
-    bottom: 70, // Move it up to be above the tab bar
+    bottom: 70,
     right: 16,
     width: 56,
     height: 56,
@@ -99,36 +105,72 @@ const commonStyles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: '#1e1e1e', // Dark navbar background
+    backgroundColor: '#1e1e1e',
     paddingVertical: 16,
     borderTopWidth: 1,
-    borderTopColor: '#333333', // Dark border color
+    borderTopColor: '#333333',
   },
   navItem: {
     padding: 8,
-    color: '#ffffff', // Light text color
+    color: '#ffffff',
   },
   smallCardsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between', // Ensures cards are on opposite sides
+    justifyContent: 'space-between',
     marginTop: 20,
   },
   smallCard: {
     padding: 10,
     backgroundColor: '#1e1e1e',
     borderRadius: 12,
-    width: 170, // Adjust width as needed
-    height: 100, // Adjust height as needed
+    width: 170,
+    height: 100,
+  },
+  // Updated debt card styles
+  debtCard: {
+    backgroundColor: '#1e1e1e',
+    borderRadius: 12,
+    width: '100%',
+    height: 80,
+    marginTop: 20,
+    padding: 16,
+    paddingTop: 24,
+    justifyContent: 'space-between',
+  },
+  debtCardHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 8,
+  },
+  debtCardLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    marginLeft: 8,
+  },
+  debtCardAmount: {
+    fontSize: 24,
+    fontWeight: '600',
+    color: '#ffffff',
+    marginLeft: 8,
+  },
+  debtCardDate: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#808080',
+    textAlign: 'right',
+    marginLeft: 'auto',
   },
   editButton: {
     marginTop: 20,
   },
-  intputContainer: {
+  inputContainer: {
     marginBottom: 20,
   },
   input: {
-    height: 50, 
-    borderWidth: 1, 
+    height: 50,
+    borderWidth: 1,
     borderColor: '#333333',
     borderRadius: 8,
     paddingHorizontal: 16,
