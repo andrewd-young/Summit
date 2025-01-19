@@ -68,6 +68,7 @@ export default function App() {
               name="Profile"
               component={ProfileScreen}
               options={{
+                headerShown: false,
                 tabBarIcon: ({ color, size }) => (
                   <FontAwesomeIcon icon={faUser} color={color} size={size} />
                 ), headerShown: false,

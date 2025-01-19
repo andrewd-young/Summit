@@ -73,12 +73,12 @@ const commonStyles = StyleSheet.create({
     marginVertical: 4,
   },
   infoLabel: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: '500',
     color: '#ffffff',
   },
   infoValue: {
-    fontSize: 16,
+    fontSize: 18,
     color: '#ffffff',
   },
   plusButton: {
