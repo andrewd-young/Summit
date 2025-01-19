@@ -1,73 +1,86 @@
 // filepath: /Users/jojiaraki/Summit/screens/SettingsScreen.js
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, TextInput, StyleSheet, ScrollView } from 'react-native';
 import commonStyles from '../styles/commonStyles';
-import { Button, Input } from 'react-native-elements';
 
 const SettingsScreen = () => {
-  const [isEditing, setIsEditing] = useState(false);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [income, setIncome] = useState('');
+  const [zip, setZip] = useState('');
+  const [debt, setDebt] = useState('');
 
-  const [user, setUser] = useState({
-    name: 'John Pork', 
-    email: 'Johnp@gmail.com', 
-  })
-
-  const handleSave = () => { 
-    setIsEditing(false);
-  };
-
-  // return (
-  //   <ScrollView style={commonStyles.container}>
-  //   <View style={commonStyles.container}>
-  //     <Text style={commonStyles.text}>Settings Screen</Text>
-  //   </View>
-  //   </ScrollView>
-  // );
   return (
-    <ScrollView style={commonStyles.container}>
-      <View style={commonStyles.text}>
-        <Text style={commonStyles.text}>{user.name}</Text>
+    <ScrollView style={[commonStyles.container]}>
+      <Text style={commonStyles.title}>Profile</Text>
+      <View style={commonStyles.inputContainer}>
+        <Text style={commonStyles.label}>First Name</Text>
+        <TextInput
+          style={commonStyles.input}
+          placeholder="Enter your first name"
+          placeholderTextColor="#888"
+          value={firstName}
+          onChangeText={setFirstName}
+        />
       </View>
-
-      <View style={commonStyles.container}>
-        {isEditing ? (
-          <>
-            <Input
-              label="Name"
-              value={user.name}
-              onChangeText={(text) => setUser({ ...user, name: text })}
-            />
-            <Input
-              label="Email"
-              value={user.email}
-              onChangeText={(text) => setUser({ ...user, email: text })}
-            />
-            <Input
-              label="Bio"
-              value={user.bio}
-              onChangeText={(text) => setUser({ ...user, bio: text })}
-              multiline
-            />
-            <Button title="Save" onPress={handleSave} />
-          </>
-        ) : (
-          <>
-            <Text style={commonStyles.text}>Email</Text>
-            <Text style={commonStyles.text}>{user.email}</Text>
-            <Text style={commonStyles.text}>Bio</Text>
-            <Text style={commonStyles.text}>{user.bio}</Text>
-            <Button
-              title="Edit Profile"
-              onPress={() => setIsEditing(true)}
-              containerStyle={commonStyles.editButton}
-            />
-          </>
-        )}
+      <View style={commonStyles.inputContainer}>
+        <Text style={commonStyles.label}>Last Name</Text>
+        <TextInput
+          style={commonStyles.input}
+          placeholder="Enter your last name"
+          placeholderTextColor="#888"
+          value={lastName}
+          onChangeText={setLastName}
+        />
+      </View>
+      <View style={commonStyles.inputContainer}>
+        <Text style={commonStyles.label}>Email</Text>
+        <TextInput
+          style={commonStyles.input}
+          placeholder="Enter your email"
+          placeholderTextColor="#888"
+          value={email}
+          onChangeText={setEmail}
+          keyboardType="email-address"
+        />
+      </View>
+      <View style={commonStyles.inputContainer}>
+        <Text style={commonStyles.label}>Income</Text>
+        <TextInput
+          style={commonStyles.input}
+          placeholder="Enter your income"
+          placeholderTextColor="#888"
+          value={income}
+          onChangeText={setIncome}
+          keyboardType="decimal-pad"
+        />
+      </View>
+      <View style={commonStyles.inputContainer}>
+        <Text style={commonStyles.label}>ZIP Code</Text>
+        <TextInput
+          style={commonStyles.input}
+          placeholder="Enter your ZIP code"
+          placeholderTextColor="#888"
+          value={zip}
+          onChangeText={setZip}
+          keyboardType="numeric"
+        />
+      </View>
+      <View style={commonStyles.inputContainer}>
+        <Text style={commonStyles.label}>Debt Amount</Text>
+        <TextInput
+          style={commonStyles.input}
+          placeholder="Enter your debt amount"
+          placeholderTextColor="#888"
+          value={debt}
+          onChangeText={setDebt}
+          keyboardType="decimal-pad"
+        />
       </View>
     </ScrollView>
   );
 };
-
 
 
 export default SettingsScreen;
