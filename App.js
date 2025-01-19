@@ -12,6 +12,8 @@ import SignUpStack from "./src/screens/SignUpStack";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faHome, faMap, faUser } from "@fortawesome/free-solid-svg-icons";
 import commonStyles from "./src/styles/commonStyles";
+import 'react-native-gesture-handler';
+import { Sign } from "crypto";
 
 // For database
 axios.defaults.baseURL = "https://infinite-quetzal-set.ngrok-free.app";
@@ -81,7 +83,7 @@ export default function App() {
   const [isModalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
-    // Show the SignUp screen as a popup on app launch
+    // Show the popup on app launch
     setModalVisible(true);
   }, []);
 
@@ -92,25 +94,9 @@ export default function App() {
         <NavigationContainer style={commonStyles.container}>
           <MainStack.Navigator screenOptions={{ headerShown: false }}>
             <MainStack.Screen name="Main" component={TabNavigator} />
+            <MainStack.Screen name="SignUp" component={SignUpStack} />
           </MainStack.Navigator>
         </NavigationContainer>
-
-        {/* Modal for the SignUp screen as a popup */}
-        <Modal
-          animationType="fade"
-          transparent={true}
-          visible={isModalVisible}
-          onRequestClose={() => setModalVisible(false)}
-        >
-          <View style={{
-            flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)'
-          }}>
-            <View style={{ width: 300, padding: 20, backgroundColor: '#fff', borderRadius: 10 }}>
-              <SignUpStack />
-              <Button title="Close" onPress={() => setModalVisible(false)} />
-            </View>
-          </View>
-        </Modal>
       </SafeAreaView>
     </SafeAreaProvider>
   );
