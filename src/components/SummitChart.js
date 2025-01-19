@@ -30,48 +30,54 @@ function calculateRemainingLoanAmount(principal, annualInterestRate, loanTerm) {
   return dataPoints;
 }
 
-
-
 const SummitChart = () => {
+  const principal = 100000; // Example principal amount
+  const annualInterestRate = 5; // Example annual interest rate (5%)
+  const loanTerm = 30; // Example loan term (30 years)
+
+  const dataPoints = calculateRemainingLoanAmount(principal, annualInterestRate, loanTerm);
+
   const data = {
-    labels: ['January', '', 'March', '', 'May', '', 'July'], // Show every other month
+    labels: dataPoints.map(point => point.paymentNumber.toString()), // X-axis labels (payment numbers)
     datasets: [
       {
-        label: 'Debt',
-        data: [65, 59, 80, 81, 56, 55, 40].map(value => isNaN(value) ? 0 : value), // Ensure no NaN values
+        label: 'Percentage Paid Off',
+        data: dataPoints.map(point => point.percentPaidOff), // Y-axis data (percentage paid off)
         color: (opacity = 1) => `rgba(75, 192, 192, ${opacity})`, // optional
         strokeWidth: 2, // optional
       },
     ],
   };
 
-  console.log('Chart data:', data);
-
-  const chartConfig = {
-    backgroundGradientFrom: '#1e1e1e',
-    backgroundGradientTo: '#1e1e1e',
-    color: (opacity = 1) => `rgba(75, 192, 192, ${opacity})`,
-    strokeWidth: 2, // optional, default 3
-    barPercentage: 0.5,
-    formatYLabel: (value) => `$${parseFloat(value).toFixed(2)}`, // Ensure proper formatting
-  };
-
-  console.log('Chart data:', JSON.stringify(data, null, 2));
-
-  const screenWidth = Dimensions.get('window').width;
-  const cardPadding = 60; // Assuming 16 padding on each side
-
   return (
-    <View>
-      <View style={[commonStyles.card, { alignItems: 'center', justifyContent: 'center' }]}>
-        <LineChart
-          data={data}
-          width={screenWidth - cardPadding} // Adjust width to fit inside the card padding
-          height={180} // Adjusted height
-          chartConfig={chartConfig}
-          bezier
-        />
-      </View>
+    <View style={commonStyles.chartContainer}>
+      <LineChart
+        data={data}
+        width={Dimensions.get('window').width-10} // from react-native
+        height={220}
+        chartConfig={{
+          backgroundColor: '#1e2923',
+          backgroundGradientFrom: '#08130D',
+          backgroundGradientTo: '#08130D',
+          decimalPlaces: 0, // optional, defaults to 2dp
+          color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+          style: {
+            borderRadius: 16,
+          },
+          propsForDots: {
+            r: '6',
+            strokeWidth: '2',
+            stroke: '#ffa726',
+          },
+        }}
+        bezier
+        style={{
+          marginVertical: 8,
+          borderRadius: 16,
+          marginLeft: -30,
+        }}
+      />
     </View>
   );
 };
