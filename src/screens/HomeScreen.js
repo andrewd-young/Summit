@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import commonStyles from "../styles/commonStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faMountain } from "@fortawesome/free-solid-svg-icons";
 import SummitChart from "../components/SummitChart";
 import DebtAccountCard from "../components/DebtAccountCard";
 
@@ -13,7 +13,10 @@ const HomeScreen = ({ navigation }) => {
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={commonStyles.title}>Summit</Text>
+        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginVertical: 20 }}>
+          <Text style={commonStyles.title}>Summit</Text>
+          <FontAwesomeIcon icon={faMountain} size={32} color="white" style={{ marginLeft: 10 }} />
+        </View>
 
         {/* Summit Card */}
         <SummitChart />
