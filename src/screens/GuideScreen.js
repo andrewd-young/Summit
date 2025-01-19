@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, ScrollView } from 'react-native';
 import axios from 'axios';
 import commonStyles from '../styles/commonStyles';
+import { useUserData } from '../context/UserProvider';
 
-// const { user } = useUserData();
+const { user } = useUserData();
 
 const GuideScreen = () => {
   const [messages, setMessages] = useState([
