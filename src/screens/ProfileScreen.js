@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import commonStyles from '../styles/commonStyles';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { UserContext, useUserData } from '../context/UserProvider';
 
 const ProfileScreen = () => {
   const [firstName, setFirstName] = useState('John');
@@ -11,6 +12,8 @@ const ProfileScreen = () => {
   const [income, setIncome] = useState('$50,000');
   const [zip, setZip] = useState('12345');
   const [debt, setDebt] = useState('$10,000');
+
+  const { user } = useUserData();
 
   return (
     <ScrollView style={[commonStyles.container]}>
