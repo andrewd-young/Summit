@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import commonStyles from '../../styles/commonStyles';
 
 const IncomeScreen = ({ navigation, route }) => {
@@ -8,16 +8,6 @@ const IncomeScreen = ({ navigation, route }) => {
   const [zip, setZip] = useState('');
 
   const handleNext = () => {
-
-    if (income === '' || zip === '') {
-      Alert.alert('Please enter your income and ZIP code');
-      return;
-    }
-
-    if (zip.length !== 5) {
-      Alert.alert('Please enter a valid ZIP code');
-      return
-    }
     navigation.navigate('DebtScreen', { email, firstName, lastName, income, zip });
   };
 
@@ -25,40 +15,30 @@ const IncomeScreen = ({ navigation, route }) => {
     <View style={commonStyles.container}>
       <Text style={commonStyles.introscreentitle}>Enter Your Income & ZIP Code</Text>
       <View style ={{flexDirection: "column", gap: 20}}>
-
-      <View style={styles.fieldContainer}>
-        <Text style={{ color: "white" }}>＄</Text>
+      <View style={commonStyles.fieldContainer}>
         <TextInput
-          style={commonStyles.onboardingInput}
-          placeholder="Income"
+          style={[commonStyles.onboardingInput, { height: 50 }]}
+          placeholder="Income ($)"
           placeholderTextColor="#888"
           value={income}
           onChangeText={setIncome}
           keyboardType="decimal-pad"
         />
+        <TextInput
+          style={[commonStyles.onboardingInput, { height: 50, marginTop: 20 }]}
+          placeholder="ZIP Code"
+          placeholderTextColor="#888"
+          value={zip}
+          onChangeText={setZip}
+          keyboardType="numeric"
+        />
       </View>
-      <View>
-      <TextInput
-        style={commonStyles.onboardingInput}
-        placeholder="ZIP Code"
-        placeholderTextColor="#888"
-        value={zip}
-        onChangeText={setZip}
-        keyboardType="numeric"
-      />
-      </View>
-      </View>
-      <Button title="Next" onPress={handleNext} />
+      <TouchableOpacity style={commonStyles.longWhiteButton} onPress={handleNext}>
+        <Text style={commonStyles.blackText}>Next</Text>
+      </TouchableOpacity>
+    </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  fieldContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 10
-  }
-})
 
 export default IncomeScreen;

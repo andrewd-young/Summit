@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert, ScrollView } from 'react-native';
 import commonStyles from '../../styles/commonStyles';
 
 const NameScreen = ({ navigation, route }) => {
@@ -16,41 +16,31 @@ const NameScreen = ({ navigation, route }) => {
   };
 
   return (
-    <View style={commonStyles.container}>
-      <Text style={commonStyles.introscreentitle}>Enter Your Name</Text>
-      <View style={styles.inputContainer}>
-      <TextInput
-        style={commonStyles.onboardingInput}
-        placeholder="First Name"
-        placeholderTextColor="#888"
-        value={firstName}
-        onChangeText={setFirstName}
-      />
-      <TextInput
-        style={commonStyles.onboardingInput}
-        placeholder="Last Name"
-        placeholderTextColor="#888"
-        value={lastName}
-        onChangeText={setLastName}
-      />
+    <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', paddingBottom: 100 }}>
+      <View style={commonStyles.container}>
+        <Text style={commonStyles.introscreentitle}>Enter Your Name</Text>
+        <View style={commonStyles.inputContainer}>
+          <TextInput
+            style={commonStyles.onboardingInput}
+            placeholder="First Name"
+            placeholderTextColor="#888"
+            value={firstName}
+            onChangeText={setFirstName}
+          />
+          <TextInput
+            style={commonStyles.onboardingInput}
+            placeholder="Last Name"
+            placeholderTextColor="#888"
+            value={lastName}
+            onChangeText={setLastName}
+          />
+        </View>
+        <TouchableOpacity style={commonStyles.longWhiteButton} onPress={handleNext}>
+          <Text style={commonStyles.blackText}>Next</Text>
+        </TouchableOpacity>
       </View>
-      <Button style={styles.nextButton} title="Next" onPress={handleNext} />
-    </View>
+    </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  nextButton: {
-    padding: 5,
-    borderRadius: 5,
-    backgroundColor: '#gray',
-  },
-  inputContainer: {
-    alignItems: 'center',
-    marginVertical: 20,
-    flexDirection: 'column',
-    gap: 50
-  }
-})
 
 export default NameScreen;

@@ -17,7 +17,7 @@ import { Sign } from "crypto";
 import { UserProvider } from "./src/context/UserProvider";
 
 // For database
-axios.defaults.baseURL = "https://infinitely-careful-urchin.ngrok-free.app";
+axios.defaults.baseURL = "https://infinite-quetzal-set.ngrok-free.app";
 
 const Tab = createBottomTabNavigator();
 const MainStack = createNativeStackNavigator();

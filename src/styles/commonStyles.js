@@ -36,9 +36,6 @@ const commonStyles = StyleSheet.create({
   welcometitle: {
     fontSize: 60,
     fontWeight: 'bold',
-    marginBottom: 50,
-    marginLeft: 50,
-    marginTop: 50,
     paddingTop: 15,
     color: '#ffffff',
     // position: 'absolute',
@@ -240,7 +237,7 @@ const commonStyles = StyleSheet.create({
     marginVertical: 20,
     color: '#ffffff',
   },
-  inputContainer: {
+  inputContainerGuide: {
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 10,
@@ -261,6 +258,42 @@ const commonStyles = StyleSheet.create({
     color: '#ffffff',
     fontSize: 20,
     marginBottom: 15,
+  },
+  longWhiteButton: {
+    backgroundColor: '#ffffff',
+    padding: 15,
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '80%',
+    marginLeft: '10%',
+    marginRight: '10%',
+    marginTop: 20,
+  },
+  onboardingInput: {
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "#888",
+    padding: 10,
+    width: '80%',
+    marginLeft: '10%',
+    marginRight: '10%',
+    color: "white",
+  },
+  blackText: {
+    color: '#000000',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  inputContainer: {
+    alignItems: 'center',
+    marginVertical: 20,
+    flexDirection: 'column',
+    gap: 20,
+  },
+  dollarSign: {
+    color: "white",
+    marginRight: 10,
   },
 });
 
