@@ -37,13 +37,16 @@ const SummitChart = () => {
 
   const dataPoints = calculateRemainingLoanAmount(principal, annualInterestRate, loanTerm);
 
+  // Filter labels to show every 12th payment number (one per year)
+  const filteredLabels = dataPoints.map((point, index) => (index % 36 === 0 ? point.paymentNumber.toString() : ''));
+
   const data = {
-    labels: dataPoints.map(point => point.paymentNumber.toString()), // X-axis labels (payment numbers)
+    labels: filteredLabels, // X-axis labels (filtered payment numbers)
     datasets: [
       {
         label: 'Percentage Paid Off',
         data: dataPoints.map(point => point.percentPaidOff), // Y-axis data (percentage paid off)
-        color: (opacity = 1) => `rgba(75, 192, 192, ${opacity})`, // optional
+        color: (opacity = 1) => `#ffffff`, // optional
         strokeWidth: 2, // optional
       },
     ],
@@ -53,21 +56,21 @@ const SummitChart = () => {
     <View style={commonStyles.chartContainer}>
       <LineChart
         data={data}
-        width={Dimensions.get('window').width-10} // from react-native
+        width={Dimensions.get('window').width - 16} // from react-native
         height={220}
         chartConfig={{
           backgroundColor: '#1e2923',
           backgroundGradientFrom: '#08130D',
           backgroundGradientTo: '#08130D',
-          decimalPlaces: 0, // optional, defaults to 2dp
+          decimalPlaces: 2, // optional, defaults to 2dp
           color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
           labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           style: {
             borderRadius: 16,
           },
           propsForDots: {
-            r: '6',
-            strokeWidth: '2',
+            r: '2',
+            strokeWidth: '1.5',
             stroke: '#ffa726',
           },
         }}
@@ -75,7 +78,6 @@ const SummitChart = () => {
         style={{
           marginVertical: 8,
           borderRadius: 16,
-          marginLeft: -30,
         }}
       />
     </View>
