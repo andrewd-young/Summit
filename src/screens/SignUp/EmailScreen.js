@@ -24,9 +24,9 @@ const EmailScreen = ({ navigation }) => {
       return;
     }
 
-    const isUserNew = true;
-    console.log(isUserNew)
-    if (isUserNew) {
+    const doesUserExist = await userExists(email.toLowerCase());
+    console.log(doesUserExist)
+    if (!doesUserExist) {
       navigation.navigate('NameScreen', { email });
     } else {
       navigation.replace("Main");

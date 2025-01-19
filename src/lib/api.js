@@ -12,28 +12,36 @@ export const testRun = async () => {
 }
 
 export const initUser = async (firstName, lastName, email, income, debt, location) => {
-    try {
+  try{
         const response = await axios.post("/onboarding/initUser", {
-        firstName,
-        lastName,
-        email,
-        income,
-        debt,
-        location
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            income: income,
+            debt: debt,
+            location: location
         });
-        return response.data;
-    } catch (error) {
-        return response.error;
-    }
+        return response;
+      } catch (err) {
+    return err;
+  }
 }
 
 export const login = async (email) => {
-    try {
-        const response = await axios.post("/onboarding/login", {
-        email,
-        });
-        return response;
-    } catch (error) {
-        return response;
-    }
+  const response = await axios.post("/onboarding/login", {
+    email,
+  }).then((response) => {
+    return response.data;
+  }).catch((error) => {
+    return error;
+  });
+  try{
+    const response = await axios.post("/onboarding/login", {
+      email,
+    })
+    return response;
+  } catch (err) {
+return err;
+}
+
 }
