@@ -61,7 +61,7 @@ const GuideScreen = () => {
           </Text>
         ))}
       </ScrollView>
-      <View style={commonStyles.inputContainer}>
+      <View style={commonStyles.inputContainerGuide}>
         <TextInput
           style={commonStyles.input}
           value={input}

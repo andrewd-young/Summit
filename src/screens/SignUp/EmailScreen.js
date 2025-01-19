@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import commonStyles from '../../styles/commonStyles';
 import { useUserData } from '../../context/UserProvider';
 
@@ -40,7 +40,7 @@ const EmailScreen = ({ navigation }) => {
   return (
     <View style={[commonStyles.container]}>
       <View style={{justifyContent: "center", alignContent: "center", marginTop: "5%"}}>
-        <Text style={[commonStyles.introscreentitle, {textAlign: "center"}]}>Enter Your Email</Text>
+        <Text style={[commonStyles.introscreentitle]}>Enter Your Email</Text>
 
       </View>
       <View style={{ alignItems: 'center', marginVertical: 20 }}>
@@ -53,7 +53,9 @@ const EmailScreen = ({ navigation }) => {
           keyboardType="email-address"
         />
       </View>
-      <Button title="Next" onPress={handleNext} />
+      <TouchableOpacity style={commonStyles.longWhiteButton} onPress={handleNext}>
+          <Text style={commonStyles.blackText}>Next</Text>
+        </TouchableOpacity>
     </View>
   );
 };
