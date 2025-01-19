@@ -17,7 +17,7 @@ const NameScreen = ({ navigation, route }) => {
 
   return (
     <View style={commonStyles.container}>
-      <Text style={commonStyles.title}>Enter Your Name</Text>
+      <Text style={commonStyles.introscreentitle}>Enter Your Name</Text>
       <View style={styles.inputContainer}>
       <TextInput
         style={commonStyles.onboardingInput}

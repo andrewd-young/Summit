@@ -9,7 +9,7 @@ const GuideScreen = () => {
 
   return <Text>{user.firstName}</Text>
   const [messages, setMessages] = useState([
-    { role: 'system', content: 'Welcome! My name is Wes and I will be your guide throughout your debt journey. How can I assist you with your debt-related questions today?' }
+    { role: 'system', content: `Welcome! Hello, ${user.firstName}. My name is Wes and I will be your guide throughout your debt journey. How can I assist you with your debt-related questions today?` }
   ]);
   const [input, setInput] = useState('');
 
@@ -25,7 +25,7 @@ const GuideScreen = () => {
         {
           model: 'gpt-3.5-turbo',
           messages: [
-            { role: 'system', content: 'You are a helpful assistant named Wes responsible for helping students with debt. Based on location and average monthly income, provide average spending for categories like groceries, travel, and other. Answer debt related questions with analogies with hiking. ' },
+            { role: 'system', content: `You are a helpful assistant named Wes responsible for helping students with debt. Based on location and average monthly income, provide average spending for categories like groceries, travel, and other. Answer debt related questions with analogies with hiking. For this particular person you are helping, their name is ${user.firstName}, their location is ${user.location}, their debt amount is ${user.debt}, and income per month is ${user.income}.  ` },
             ...messages,
             newMessage,
           ],

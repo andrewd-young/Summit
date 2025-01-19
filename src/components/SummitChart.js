@@ -5,6 +5,37 @@ import { LineChart } from 'react-native-chart-kit';
 import { Dimensions } from 'react-native';
 import commonStyles from '../styles/commonStyles';
 
+
+
+const { user } = useUserData();
+
+function calculateRemainingLoanAmount(principal, annualInterestRate, loanTerm) {
+  const monthlyInterestRate = annualInterestRate / 12 / 100;
+  const numberOfPayments = loanTerm * 12;
+
+  // Calculate monthly payment
+  const monthlyPayment =
+    (principal * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) /
+    (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+
+  let remainingBalance = principal;
+  const dataPoints = [];
+
+  for (let paymentNumber = 1; paymentNumber <= numberOfPayments; paymentNumber++) {
+    const interestPayment = remainingBalance * monthlyInterestRate;
+    const principalPayment = monthlyPayment - interestPayment;
+    remainingBalance -= principalPayment;
+
+    // Calculate percentage of principal paid off
+    const percentPaidOff = ((principal - remainingBalance) / principal) * 100;
+    dataPoints.push({ paymentNumber, percentPaidOff });
+  }
+
+  return dataPoints;
+}
+
+
+
 const SummitChart = () => {
   const data = {
     labels: ['January', '', 'March', '', 'May', '', 'July'], // Show every other month

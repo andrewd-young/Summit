@@ -40,7 +40,7 @@ const EmailScreen = ({ navigation }) => {
   return (
     <View style={[commonStyles.container]}>
       <View style={{justifyContent: "center", alignContent: "center", marginTop: "5%"}}>
-        <Text style={[commonStyles.title, {textAlign: "center"}]}>Enter Your Email</Text>
+        <Text style={[commonStyles.introscreentitle, {textAlign: "center"}]}>Enter Your Email</Text>
 
       </View>
       <View style={{ alignItems: 'center', marginVertical: 20 }}>
