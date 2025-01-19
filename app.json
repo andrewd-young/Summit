@@ -1,9 +1,22 @@
 {
-  "name": "Summit",
+  "expo": {
+    "name": "Summit",
+    "slug": "summit-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/summit-app-icon.png",
+    "backgroundColor": "#093110",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    }
+  },
   "android": {
     "package": "com.anonymous.summit"
   },
   "ios": {
-    "bundleIdentifier": "com.anonymous.summit"
+    "bundleIdentifier": "com.anonymous.summit",
+    "icon": "./src/assets/summit-app-icon.png"
   }
 }
