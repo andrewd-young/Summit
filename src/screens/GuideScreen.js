@@ -32,7 +32,7 @@ const GuideScreen = () => {
         },
         {
           headers: {
-            Authorization: `Bearer BLANK API KEY`,
+            Authorization: `Bearer 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`,
             'Content-Type': 'application/json',
           },
         }
