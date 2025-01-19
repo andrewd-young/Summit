@@ -23,7 +23,7 @@ const IncomeScreen = ({ navigation, route }) => {
 
   return (
     <View style={commonStyles.container}>
-      <Text style={commonStyles.title}>Enter Your Income & ZIP Code</Text>
+      <Text style={commonStyles.introscreentitle}>Enter Your Income & ZIP Code</Text>
       <View style ={{flexDirection: "column", gap: 20}}>
 
       <View style={styles.fieldContainer}>

@@ -3,7 +3,7 @@ import { View, Text, TextInput, Button, ScrollView } from 'react-native';
 import axios from 'axios';
 import commonStyles from '../styles/commonStyles';
 
-const { user } = useUserData();
+// const { user } = useUserData();
 
 const GuideScreen = () => {
   const [messages, setMessages] = useState([

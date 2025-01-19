@@ -16,7 +16,7 @@ const DebtScreen = ({ navigation, route }) => {
 
   return (
     <View style={commonStyles.container}>
-      <Text style={commonStyles.title}>Enter Your Debt Information</Text>
+      <Text style={commonStyles.introscreentitle}>Enter Your Debt Information</Text>
       <TextInput
         style={commonStyles.onboardingInput}
         placeholder="Debt Amount"

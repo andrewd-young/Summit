@@ -12,7 +12,9 @@ const commonStyles = StyleSheet.create({
     borderColor: "#888",
     padding: 10,
     width: "80%",
-    color: "white"
+    color: "white",
+    marginLeft: 40,
+    marginBottom: 20,
   },
   card: {
     backgroundColor: '#1e1e1e',
@@ -30,6 +32,30 @@ const commonStyles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 5,
     color: '#ffffff',
+  },
+  welcometitle: {
+    fontSize: 60,
+    fontWeight: 'bold',
+    marginBottom: 50,
+    marginLeft: 50,
+    marginTop: 50,
+    paddingTop: 15,
+    color: '#ffffff',
+    // position: 'absolute',
+    alignItems: 'center',
+    justifyContent: "center",
+  },
+  introscreentitle: {
+    fontSize: 60,
+    fontWeight: 'bold',
+    marginBottom: 50,
+    marginLeft: 40,
+    marginTop: 50,
+    paddingTop: 15,
+    color: '#ffffff',
+    // position: 'absolute',
+    alignItems: 'center',
+    justifyContent: "center",
   },
   subTitle: {
     fontSize: 24,
@@ -65,6 +91,14 @@ const commonStyles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#808080',
+  },
+  welcomelabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    alignSelf: 'center',
+    marginTop: 40,
+
   },
   amount: {
     fontSize: 40,
