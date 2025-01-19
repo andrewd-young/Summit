@@ -23,6 +23,13 @@ const ProfileScreen = () => {
     )
   }
 
+  const formatNumberWithCommas = (number) => {
+    if (number === undefined || number === null) {
+      return '';
+    }
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   return (
     <ScrollView style={[commonStyles.container]}>
       <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginVertical: 20 }}>
@@ -48,7 +55,7 @@ const ProfileScreen = () => {
       <View style={commonStyles.card}>
         <View style={commonStyles.infoRow}>
           <Text style={commonStyles.infoLabel}>Income:</Text>
-          <Text style={commonStyles.infoValue}>${user.income || ""}</Text>
+          <Text style={commonStyles.infoValue}>${formatNumberWithCommas(user.income) || ""}</Text>
         </View>
         <View style={commonStyles.infoRow}>
           <Text style={commonStyles.infoLabel}>ZIP Code:</Text>
@@ -58,7 +65,7 @@ const ProfileScreen = () => {
       <View style={commonStyles.card}>
         <View style={commonStyles.infoRow}>
           <Text style={commonStyles.infoLabel}>Debt Amount:</Text>
-          <Text style={commonStyles.infoValue}>${user.debt || -1}</Text>
+          <Text style={commonStyles.infoValue}>${formatNumberWithCommas(user.debt) || ""}</Text>
         </View>
       </View>
     </ScrollView>
