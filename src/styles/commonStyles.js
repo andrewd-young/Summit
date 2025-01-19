@@ -122,6 +122,19 @@ const commonStyles = StyleSheet.create({
   },
   editButton: {
     marginTop: 20,
+  },
+  intputContainer: {
+    marginBottom: 20,
+  },
+  input: {
+    height: 50, 
+    borderWidth: 1, 
+    borderColor: '#333333',
+    borderRadius: 8,
+    paddingHorizontal: 16,
+    fontSize: 16,
+    color: '#ffffff',
+    backgroundColor: '#1e1e1e',
   }
 });
 

@@ -15,15 +15,6 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-<<<<<<< HEAD
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Trail Guide" component={GuideScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
-=======
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1, backgroundColor: "#121212" }}>
         <StatusBar barStyle="light-content" />
@@ -82,6 +73,5 @@ export default function App() {
         </NavigationContainer>
       </SafeAreaView>
     </SafeAreaProvider>
->>>>>>> 25979d95eb0e65ffdc988be25b1e3d64dab0a31e
   );
 }
