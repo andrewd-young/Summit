@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import commonStyles from "../styles/commonStyles";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faHome, faPlus } from "@fortawesome/free-solid-svg-icons";
+import SummitChart from "../components/SummitChart";
 
 const HomeScreen = ({ navigation }) => {
   return (
@@ -10,17 +11,7 @@ const HomeScreen = ({ navigation }) => {
       <Text style={commonStyles.title}>Summit</Text>
 
       {/* Summit Card */}
-      <View style={commonStyles.card}>
-        {/* Progress Steps */}
-        <View style={commonStyles.stepsContainer}>
-          <View style={commonStyles.steps}>
-            <View style={commonStyles.step} />
-            <View style={commonStyles.step} />
-            <View style={commonStyles.step} />
-            <View style={[commonStyles.step, commonStyles.incompleteLine]} />
-          </View>
-        </View>
-      </View>
+      <SummitChart />
 
       {/* Small Cards Container */}
       <View style={commonStyles.smallCardsContainer}>
